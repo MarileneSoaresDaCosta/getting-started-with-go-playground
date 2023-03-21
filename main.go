@@ -1,15 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"github.com/MarileneSoaresDaCosta/getting-started-with-go-playground/models"
+	"net/http"
+	"playground/controllers"
 )
 
 func main() {
-	u := models.User{
-		ID:        2,
-		FirstName: "Tricia",
-		LastName:  "McMillan",
-	}
-	fmt.Println(u)
+	controllers.RegisterControllers()
+	http.ListenAndServe(":3000", nil)
+	// this is enough to see the message at localhost:3000/users
 }
